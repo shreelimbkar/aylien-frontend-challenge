@@ -16,7 +16,7 @@ const SearchPage = (props) => {
 
   const searchInputOnChange = (input) => {
     if (input?.length >= 2) {
-      console.log("on change input", input);
+      // console.log("on change input", input);
       axios
         .get("/autocompletes", {
           headers: {
@@ -32,7 +32,7 @@ const SearchPage = (props) => {
           },
         })
         .then(function (response) {
-          console.log("response", response);
+          // console.log("response", response);
           response && setAutoCompleteList(response.data.autocompletes);
         })
         .catch(function (error) {
@@ -48,7 +48,6 @@ const SearchPage = (props) => {
         searchInputOnChange={searchInputOnChange}
         autoCompleteList={autoCompleteList}
       />
-      {/* {autoCompleteList && console.log("autoCompleteList", autoCompleteList)} */}
       <StoryList storyList={storyList} />
     </>
   );

@@ -54,7 +54,7 @@ const SearchBar = (props) => {
 
   const handleListClick = (e) => {
     setKeyword(e.target.outerText);
-    console.log(e.target.outerText);
+    // console.log(e.target.outerText);
   };
 
   const autoList = props.autoCompleteList.map((list, index) => {
