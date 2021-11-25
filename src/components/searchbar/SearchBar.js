@@ -3,7 +3,20 @@ import React, { useState } from "react";
 const SearchBar = (props) => {
   const style = {
     searchbarContainer: {
-      border: "1px solid gray",
+      borderTop: "1px solid gray",
+      borderBottom: "1px solid gray",
+      width: "50%",
+      margin: "0 auto",
+      padding: "1rem",
+    },
+    searchInput: {
+      padding: "1rem",
+      fontSize: "1rem",
+      width: "50%",
+    },
+    searchBtn: {
+      padding: "1rem",
+      fontSize: "1rem",
     },
   };
 
@@ -11,6 +24,12 @@ const SearchBar = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.searchInput(keyword);
+  };
+
+  const handleSearchInput = (e) => {
+    e.preventDefault();
+    setKeyword(e.target.value);
+    props.searchInputOnChange(e.target.value);
   };
 
   return (
@@ -22,9 +41,12 @@ const SearchBar = (props) => {
             id="search-input"
             placeholder="Companies, Organisations, People or Places..."
             name="search-input"
-            onChange={(e) => setKeyword(e.target.value)}
+            onChange={handleSearchInput}
+            autoComplete="off"
+            style={style.searchInput}
+            autoFocus={true}
           />
-          <button id="search-btn" name="search-btn">
+          <button id="search-btn" name="search-btn" style={style.searchBtn}>
             Search
           </button>
         </form>

@@ -6,13 +6,24 @@ const SearchPage = (props) => {
   // const [input, setInput] = useState("");
   const [storyList, setStoryList] = useState();
 
-  const searchInput = (input) => {
-    console.log("input", input);
+  const searchInputOnSubmit = (input) => {
+    if (input?.length >= 2) {
+      console.log("input", input);
+    }
+  };
+
+  const searchInputOnChange = (input) => {
+    if (input?.length >= 2) {
+      console.log("on change input", input);
+    }
   };
 
   return (
     <>
-      <SearchBar searchInput={searchInput} />
+      <SearchBar
+        searchInput={searchInputOnSubmit}
+        searchInputOnChange={searchInputOnChange}
+      />
       <StoryList storyList={storyList} />
     </>
   );
